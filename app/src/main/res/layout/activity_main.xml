@@ -4,8 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/white"
+    >
 
+<!--    Questions and Answer Card Section-->
     <TextView
         android:id="@+id/question"
         android:layout_width="match_parent"
@@ -13,6 +16,10 @@
         android:textSize="40sp"
         android:text="When was the first android version created?"
         android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/question_card_background"
+        android:elevation="10dp"
+        android:layout_margin="20dp"
         />
     <TextView
         android:id="@+id/answer"
@@ -21,6 +28,56 @@
         android:textSize="40sp"
         android:text="2008"
         android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/answer_card_background"
+        android:elevation="10dp"
+        android:layout_margin="20dp"
+        />
+
+
+<!--    Multiple Choice Section-->
+    <TextView
+        android:id="@+id/firstChoice"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="2000"
+        android:textColor="@color/black"
+        android:background="@drawable/answer_card_background"
+        android:elevation="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/question"
+        />
+    <TextView
+        android:id="@+id/secondChoice"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/answer_card_background"
+        android:text="2008"
+        android:elevation="10dp"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/firstChoice"
+        />
+
+    <TextView
+        android:id="@+id/thirdChoice"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="1994"
+        android:textColor="@color/black"
+        android:background="@drawable/answer_card_background"
+        android:elevation="10dp"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/secondChoice"
         />
 
 </RelativeLayout>

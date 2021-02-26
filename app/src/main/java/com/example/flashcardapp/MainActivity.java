@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         TextView answerTextView = findViewById(R.id.answer);
         answerTextView.setVisibility(View.INVISIBLE);
 
+//        The Question and Answer flash cards
         questionTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,5 +25,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        answerTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                answerTextView.setVisibility(View.INVISIBLE);
+                questionTextView.setVisibility(View.VISIBLE);
+            }
+        });
+
+//        The multiple choice
+        TextView firstChoice = findViewById(R.id.firstChoice);
+        TextView secondChoice = findViewById(R.id.secondChoice);
+        TextView thirdChoice = findViewById(R.id.thirdChoice);
     }
 }
