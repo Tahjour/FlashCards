@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/white"
+    android:id="@+id/backgroundSelector"
     >
 
 <!--    Questions and Answer Card Section-->
@@ -44,12 +44,9 @@
         android:gravity="center"
         android:text="2000"
         android:textColor="@color/black"
-        android:background="@drawable/answer_card_background"
-        android:elevation="10dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:background="@color/wisteriaPurple"
+        android:elevation="5dp"
+        android:layout_margin="10dp"
         android:layout_below="@+id/question"
         />
     <TextView
@@ -59,10 +56,10 @@
         android:textSize="20sp"
         android:gravity="center"
         android:textColor="@color/black"
-        android:background="@drawable/answer_card_background"
+        android:background="@color/wisteriaPurple"
         android:text="2008"
-        android:elevation="10dp"
-        android:layout_margin="20dp"
+        android:elevation="5dp"
+        android:layout_margin="10dp"
         android:layout_below="@+id/firstChoice"
         />
 
@@ -74,10 +71,19 @@
         android:gravity="center"
         android:text="1994"
         android:textColor="@color/black"
-        android:background="@drawable/answer_card_background"
-        android:elevation="10dp"
-        android:layout_margin="20dp"
+        android:background="@color/wisteriaPurple"
+        android:elevation="5dp"
+        android:layout_margin="10dp"
         android:layout_below="@+id/secondChoice"
+        />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/visibilityChanger"
+        android:src="@drawable/ic_eye"
+        android:layout_below="@id/thirdChoice"
+        android:layout_centerHorizontal="true"
         />
 
 </RelativeLayout>
