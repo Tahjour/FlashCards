@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 firstChoice.setBackgroundColor(getResources().getColor(R.color.wisteriaPurple,null));
                 secondChoice.setBackgroundColor(getResources().getColor(R.color.wisteriaPurple,null));
-                thirdChoice.setBackgroundColor(getResources().getColor(R.color.wisteriaPurple));
+                thirdChoice.setBackgroundColor(getResources().getColor(R.color.wisteriaPurple, null));
             }
         });
     }
