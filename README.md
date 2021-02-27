@@ -8,9 +8,8 @@
 This is a basic Flash Card App that I'm building with the CodePath Mobile Development course. For now, it has basic functionality that can be seen in the gif below.
 
 ### App Walk-though
-`TODO://` Add the URL to your animated app walk-though `gif` in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif)
 
-<img src="C:\Users\tahja\AndroidStudioProjects\FlashCardApp\gifs\FlashCard_App(First_Gif).gif" width=200><br>
+<img src="gifs/FlashCard_App(First_Gif).gif" width=200><br>
 
 ## Required
 - [x] Create New Project in Android Studio
