@@ -1,6 +1,26 @@
 ## FlashCard App
+## Lab 2
 
-📝 `NOTE:` Paste the README templates for each subsequent lab here at the top, (i.e. lab 2, 3, 4). This will show a history of your development process including which users tories you completed and how your app looked and functioned at each step.
+### App Description
+It is a very basic Flash Card App. A user can add a single flash card, edit the flash card, answer multiple choice questions, as well as hide/show those multiple choice questions. More features and bug fixes will be added in time.
+
+### App Walk-though
+
+<img src="gifs/FlashCard_App(Second_Gif).gif" width=200><br>
+
+## Required
+- [x] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’
+- [x] The 'Add Card Screen' has a cancel button to take the user back to the main screen
+- [x] User can enter and submit a Question and Answer through the 'Add Card Screen'
+- [x] User will see the card they just created on the main screen when they press the 'Save Button'
+- [x] Push your progress to GitHub!
+
+## Optional
+- [x] User can edit a card
+- [x] An error message is shown if the user doesn't enter both a Question and an Answer
+- [x] A notification is shown if the card was created successfully
+- [x] User can also enter multiple choice answers when creating a card
+- [x] App is further styled and customized!
 
 ## Lab 1
 

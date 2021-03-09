@@ -2,88 +2,117 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backgroundSelector"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/backgroundSelector"
-    >
+    android:padding="30dp"
+    tools:context=".MainActivity">
 
-<!--    Questions and Answer Card Section-->
-    <TextView
-        android:id="@+id/question"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:textSize="40sp"
-        android:text="When was the first android version created?"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:background="@drawable/question_card_background"
-        android:elevation="10dp"
-        android:layout_margin="20dp"
-        />
-    <TextView
-        android:id="@+id/answer"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:textSize="40sp"
-        android:text="2008"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:background="@drawable/answer_card_background"
-        android:elevation="10dp"
-        android:layout_margin="20dp"
-        />
-
-
-<!--    Multiple Choice Section-->
-    <TextView
-        android:id="@+id/firstChoice"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:text="2000"
-        android:textColor="@color/black"
-        android:background="@color/wisteriaPurple"
-        android:elevation="5dp"
-        android:layout_margin="10dp"
-        android:layout_below="@+id/question"
-        />
-    <TextView
-        android:id="@+id/secondChoice"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:background="@color/wisteriaPurple"
-        android:text="2008"
-        android:elevation="5dp"
-        android:layout_margin="10dp"
-        android:layout_below="@+id/firstChoice"
-        />
-
-    <TextView
-        android:id="@+id/thirdChoice"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:text="1994"
-        android:textColor="@color/black"
-        android:background="@color/wisteriaPurple"
-        android:elevation="5dp"
-        android:layout_margin="10dp"
-        android:layout_below="@+id/secondChoice"
-        />
+    <!--    The Icons-->
+    <ImageView
+        android:id="@+id/choiceVisibilityChangerIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_eye" />
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:id="@+id/visibilityChanger"
-        android:src="@drawable/ic_eye"
-        android:layout_below="@id/thirdChoice"
+        android:id="@+id/addCardQuestionsIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_add_new_cards" />
+    <ImageView
+        android:id="@+id/editCurrentCardsIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_edit_current_cards" />
+
+
+    <!--    Multiple Choice Section-->
+    <TextView
+        android:id="@+id/correctAnswerTextView"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_below="@+id/mainFlashCardQuestionTextView"
+        android:layout_margin="10dp"
+        android:background="@color/wisteriaPurple"
+        android:gravity="center"
         android:layout_centerHorizontal="true"
-        />
+        android:text="2008"
+        android:textColor="@color/black"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/wrongAnswerOneTextView"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_below="@+id/correctAnswerTextView"
+        android:layout_margin="10dp"
+        android:background="@color/wisteriaPurple"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="2000"
+        android:textColor="@color/black"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/wrongAnswerTwoTextView"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_below="@+id/wrongAnswerOneTextView"
+        android:layout_margin="10dp"
+        android:background="@color/wisteriaPurple"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="1994"
+        android:textColor="@color/black"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform" />
+
+    <!--    Questions and Answer Card Section-->
+    <TextView
+        android:id="@+id/mainFlashCardQuestionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/question_card_background"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="When was the first android version created?"
+        android:textColor="@color/black"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/mainFlashCardAnswerTextView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/answer_card_background"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="2008"
+        android:textColor="@color/black"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform" />
 
 </RelativeLayout>

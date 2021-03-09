@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddCardActivity"
+    android:padding="30dp">
+
+    <ImageView
+        android:id="@+id/closeNewActivityIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_cancel_card"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        />
+    <ImageView
+        android:id="@+id/saveActivityIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_save_card"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        />
+
+    <!-- TODO: Add a bunch of EditTexts to save and update the flash card -->
+    <EditText
+        android:id="@+id/newQuestionEditText"
+        android:layout_width="500dp"
+        android:layout_height="100dp"
+        android:hint="Enter a new question...."
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:id="@+id/newCorrectAnswerEditText"
+        android:layout_width="500dp"
+        android:layout_height="100dp"
+        android:hint="Enter the correct answer...."
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        android:layout_below="@+id/newQuestionEditText"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:id="@+id/newWrongAnswerChoiceOneEditText"
+        android:layout_width="500dp"
+        android:layout_height="100dp"
+        android:hint="Enter a wrong answer...."
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        android:layout_below="@+id/newCorrectAnswerEditText"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:id="@+id/newWrongAnswerChoiceTwoEditText"
+        android:layout_width="500dp"
+        android:layout_height="100dp"
+        android:hint="Enter a wrong answer...."
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        android:layout_below="@+id/newWrongAnswerChoiceOneEditText"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        />
+    
+</RelativeLayout>
