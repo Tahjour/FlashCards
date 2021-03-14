@@ -51,39 +51,25 @@ public class MainActivity extends AppCompatActivity {
         String answerText = flashCardAnswerTextView.getText().toString();
 
         // TODO: 3/8/2021 Refactor how these 3 choices change color because the current way is a bir hard-coded
-        wrongAnswerChoiceOneTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String firstChoiceText = wrongAnswerChoiceOneTextView.getText().toString();
-                if (firstChoiceText.equals(answerText)){
-                    wrongAnswerChoiceOneTextView.setBackgroundColor(getResources().getColor(R.color.emeraldGreen,null));
-                } else {
-                    wrongAnswerChoiceOneTextView.setBackgroundColor(getResources().getColor(R.color.pomegranateRed,null));
-                    correctAnswerChoiceTextView.setBackgroundColor(getResources().getColor(R.color.emeraldGreen,null));
-                }
-            }
-        });
         correctAnswerChoiceTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String secondChoiceText = correctAnswerChoiceTextView.getText().toString();
-                if (secondChoiceText.equals(answerText)){
-                    correctAnswerChoiceTextView.setBackgroundColor(getResources().getColor(R.color.emeraldGreen,null));
-                } else {
-                    correctAnswerChoiceTextView.setBackgroundColor(getResources().getColor(R.color.pomegranateRed,null));
-                }
+                // Simply change color of correct answer to green
+                correctAnswerChoiceTextView.setBackgroundColor(getResources().getColor(R.color.emeraldGreen,null));
+            }
+        });
+        wrongAnswerChoiceOneTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                correctAnswerChoiceTextView.setBackgroundColor(getResources().getColor(R.color.emeraldGreen,null));
+                wrongAnswerChoiceOneTextView.setBackgroundColor(getResources().getColor(R.color.pomegranateRed,null));
             }
         });
         wrongAnswerChoiceTwoTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String thirdChoiceText = wrongAnswerChoiceTwoTextView.getText().toString();
-                if (thirdChoiceText.equals(answerText)){
-                    wrongAnswerChoiceTwoTextView.setBackgroundColor(getResources().getColor(R.color.emeraldGreen,null));
-                } else {
-                    wrongAnswerChoiceTwoTextView.setBackgroundColor(getResources().getColor(R.color.pomegranateRed,null));
-                    correctAnswerChoiceTextView.setBackgroundColor(getResources().getColor(R.color.emeraldGreen,null));
-                }
+                wrongAnswerChoiceTwoTextView.setBackgroundColor(getResources().getColor(R.color.pomegranateRed,null));
+                correctAnswerChoiceTextView.setBackgroundColor(getResources().getColor(R.color.emeraldGreen,null));
             }
         });
 
