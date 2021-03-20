@@ -32,10 +32,28 @@
         android:layout_alignParentBottom="true"
         android:src="@drawable/ic_edit_current_cards" />
 
+    <ImageView
+        android:id="@+id/nextFlashCardIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/addCardQuestionsIcon"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_next_flashcard" />
+
+    <ImageView
+        android:id="@+id/deleteFlashCardIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/choiceVisibilityChangerIcon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_delete_flashcard" />
+
 
     <!--    Multiple Choice Section-->
     <TextView
-        android:id="@+id/correctAnswerTextView"
+        android:id="@+id/answerChoiceOneTextView"
         android:layout_width="250dp"
         android:layout_height="75dp"
         android:layout_below="@+id/mainFlashCardQuestionTextView"
@@ -43,7 +61,7 @@
         android:background="@color/wisteriaPurple"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:text="2008"
+        android:text=""
         android:textColor="@color/black"
         app:autoSizeMaxTextSize="20sp"
         app:autoSizeMinTextSize="10sp"
@@ -51,15 +69,15 @@
         app:autoSizeTextType="uniform" />
 
     <TextView
-        android:id="@+id/wrongAnswerOneTextView"
+        android:id="@+id/answerChoiceTwoTextView"
         android:layout_width="250dp"
         android:layout_height="75dp"
-        android:layout_below="@+id/correctAnswerTextView"
+        android:layout_below="@+id/answerChoiceOneTextView"
         android:layout_margin="10dp"
         android:background="@color/wisteriaPurple"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:text="2000"
+        android:text=""
         android:textColor="@color/black"
         app:autoSizeMaxTextSize="20sp"
         app:autoSizeMinTextSize="10sp"
@@ -67,15 +85,15 @@
         app:autoSizeTextType="uniform" />
 
     <TextView
-        android:id="@+id/wrongAnswerTwoTextView"
+        android:id="@+id/answerChoiceThreeTextView"
         android:layout_width="250dp"
         android:layout_height="75dp"
-        android:layout_below="@+id/wrongAnswerOneTextView"
+        android:layout_below="@+id/answerChoiceTwoTextView"
         android:layout_margin="10dp"
         android:background="@color/wisteriaPurple"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:text="1994"
+        android:text=""
         android:textColor="@color/black"
         app:autoSizeMaxTextSize="20sp"
         app:autoSizeMinTextSize="10sp"
@@ -87,12 +105,12 @@
         android:id="@+id/mainFlashCardQuestionTextView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/question_card_background"
         android:elevation="5dp"
         android:gravity="center"
         android:padding="10dp"
-        android:text="When was the first android version created?"
+        android:text=""
         android:textColor="@color/black"
         app:autoSizeMaxTextSize="100sp"
         app:autoSizeMinTextSize="12sp"
@@ -103,12 +121,12 @@
         android:id="@+id/mainFlashCardAnswerTextView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/answer_card_background"
         android:elevation="5dp"
         android:gravity="center"
         android:padding="10dp"
-        android:text="2008"
+        android:text=""
         android:textColor="@color/black"
         app:autoSizeMaxTextSize="100sp"
         app:autoSizeMinTextSize="12sp"
