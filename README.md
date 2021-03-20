@@ -3,11 +3,11 @@
 ## Lab 3
 
 ### App Description
-`TODO://` Add app description
+A basic flash card app. A user can create a flashcard, edit a created flashcard, answer multiple choice for the flash card and hide the multiple choice if they want.
 
 ### App Walk-though
 
-<img src="gifs/FlashCard_App(Third_Gif).gif" width=200><br>
+<img src="gifs/FlashCard_App(Third_Gif).gif" width=500><br>
 
 ## Required
 - [x] User can create a card and still see their created card when the app is relaunched.
@@ -16,8 +16,8 @@
 ## Optional
 - [x] User can delete a card and no longer see it in their deck anymore
 - [x] Flashcards are shown in random order instead of the order they were created in
-- [ ] User can edit a card and see the edit saved when they browse through their deck of cards
-- [ ] User can create flashcards with multiple answers and be able to browse through cards with multiple choice answers shown
+- [x] User can edit a card and see the edit saved when they browse through their deck of cards
+- [x] User can create flashcards with multiple answers and be able to browse through cards with multiple choice answers shown
 
 ## Lab 2
 
