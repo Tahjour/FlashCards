@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 String currentQuestionString = flashCardQuestionTextView.getText().toString();
                 String currentCorrectAnswerString = flashCardAnswerTextView.getText().toString();
-                if (currentQuestionString.equals("")||currentCorrectAnswerString.equals("")) {
+                if (currentQuestionString.equals("--")||currentCorrectAnswerString.equals("--")) {
                     return;
                 }
                 Answers updatedAnswers = getCorrectAndWrongAnswers(currentCorrectAnswerString, answerChoiceOneTextView, answerChoiceTwoTextView, answerChoiceThreeTextView);
@@ -203,11 +203,11 @@ public class MainActivity extends AppCompatActivity {
                 if (allFlashcards.size() > 0) {
                     if (allFlashcards.size() == 1) {
                         flashcardDatabase.deleteCard(((TextView) findViewById(R.id.mainFlashCardQuestionTextView)).getText().toString());
-                        ((TextView) findViewById(R.id.mainFlashCardQuestionTextView)).setText("");
-                        ((TextView) findViewById(R.id.mainFlashCardAnswerTextView)).setText("");
-                        ((TextView) findViewById(R.id.answerChoiceOneTextView)).setText("");
-                        ((TextView) findViewById(R.id.answerChoiceTwoTextView)).setText("");
-                        ((TextView) findViewById(R.id.answerChoiceThreeTextView)).setText("");
+                        ((TextView) findViewById(R.id.mainFlashCardQuestionTextView)).setText("--");
+                        ((TextView) findViewById(R.id.mainFlashCardAnswerTextView)).setText("--");
+                        ((TextView) findViewById(R.id.answerChoiceOneTextView)).setText("-");
+                        ((TextView) findViewById(R.id.answerChoiceTwoTextView)).setText("-");
+                        ((TextView) findViewById(R.id.answerChoiceThreeTextView)).setText("-");
                         return;
                     }
                     flashcardDatabase.deleteCard(((TextView) findViewById(R.id.mainFlashCardQuestionTextView)).getText().toString());
