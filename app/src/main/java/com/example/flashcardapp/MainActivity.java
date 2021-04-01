@@ -3,7 +3,6 @@ package com.example.flashcardapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -54,40 +53,13 @@ public class MainActivity extends AppCompatActivity {
             flashCardQuestionTextView.setText(allFlashcards.get(0).getQuestion());
             flashCardAnswerTextView.setText(allFlashcards.get(0).getAnswer());
             shuffleAnswers(allFlashcards.get(0).getAnswer(), allFlashcards.get(0).getWrongAnswer1(), allFlashcards.get(0).getWrongAnswer2());
-
-            countDownTimer = new CountDownTimer(16000, 1000) {
-                public void onTick(long millisUntilFinished) {
-                    ((TextView) findViewById(R.id.timerTextView)).setText("" + millisUntilFinished / 1000);
-                }
-
-                public void onFinish() {
-                }
-            };
-            restartTimer();
+            startTimer();
         }
 
         // The Question and Answer flash cards Section
         flashCardQuestionTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                // Set the question card to invisible and set the answer card to visible when clicked
-//
-//                // get the center for the clipping circle
-//                int cx = flashCardAnswerTextView.getWidth() / 2;
-//                int cy = flashCardAnswerTextView.getHeight() / 2;
-//
-//                // get the final radius for the clipping circle
-//                float finalRadius = (float) Math.hypot(cx, cy);
-//
-//                // create the animator for this view (the start radius is zero)
-//                Animator anim = ViewAnimationUtils.createCircularReveal(flashCardAnswerTextView, cx, cy, 0f, finalRadius);
-//
-//                // hide the question and show the answer to prepare for playing the animation!
-//                flashCardQuestionTextView.setVisibility(View.INVISIBLE);
-//                flashCardAnswerTextView.setVisibility(View.VISIBLE);
-//                anim.setDuration(500);
-//                anim.start();
-                Log.d("Test", String.valueOf(flashCardQuestionTextView.getCameraDistance()));
                 flashCardQuestionTextView.setCameraDistance(25000);
                 flashCardAnswerTextView.setCameraDistance(25000);
                 flashCardQuestionTextView.animate()
@@ -214,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
                 // Creates a new intent and starts an activity with the expectation of a result being returned from the started activity.
                 Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
                 MainActivity.this.startActivityForResult(intent, 100);
-                MainActivity.this.overridePendingTransition(R.anim.right_to_center, R.anim.center_to_left);
+                overridePendingTransition(R.anim.right_to_center, R.anim.center_to_left);
             }
         });
 
@@ -243,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("currentWrongAnswerChoiceOneString", currentWrongAnswerChoiceOneString);
                 intent.putExtra("currentWrongAnswerChoiceTwoString", currentWrongAnswerChoiceTwoString);
                 MainActivity.this.startActivityForResult(intent, 101);
+                MainActivity.this.overridePendingTransition(R.anim.right_to_center, R.anim.center_to_left);
             }
         });
 
@@ -263,9 +236,11 @@ public class MainActivity extends AppCompatActivity {
                             flashCardQuestionTextView.startAnimation(centerToLeftAnim);
                         }
 
-                        answerChoiceOneTextView.startAnimation(centerToLeftAnim);
-                        answerChoiceTwoTextView.startAnimation(centerToLeftAnim);
-                        answerChoiceThreeTextView.startAnimation(centerToLeftAnim);
+                        if (answerChoiceOneTextView.getVisibility() == View.VISIBLE) {
+                            answerChoiceOneTextView.startAnimation(centerToLeftAnim);
+                            answerChoiceTwoTextView.startAnimation(centerToLeftAnim);
+                            answerChoiceThreeTextView.startAnimation(centerToLeftAnim);
+                        }
 
                         centerToLeftAnim.setAnimationListener(new Animation.AnimationListener() {
                             @Override
@@ -278,9 +253,11 @@ public class MainActivity extends AppCompatActivity {
                                 flashCardAnswerTextView.setVisibility(View.INVISIBLE);
                                 flashCardQuestionTextView.setVisibility(View.VISIBLE);
                                 flashCardQuestionTextView.startAnimation(rightToCenterAnim);
-                                answerChoiceOneTextView.startAnimation(rightToCenterAnim);
-                                answerChoiceTwoTextView.startAnimation(rightToCenterAnim);
-                                answerChoiceThreeTextView.startAnimation(rightToCenterAnim);
+                                if (answerChoiceOneTextView.getVisibility() == View.VISIBLE) {
+                                    answerChoiceOneTextView.startAnimation(rightToCenterAnim);
+                                    answerChoiceTwoTextView.startAnimation(rightToCenterAnim);
+                                    answerChoiceThreeTextView.startAnimation(rightToCenterAnim);
+                                }
                                 Flashcard flashcard = allFlashcards.get(getRandomNumber(0, allFlashcards.size() - 1));
                                 ((TextView) findViewById(R.id.mainFlashCardQuestionTextView)).setText(flashcard.getQuestion());
                                 ((TextView) findViewById(R.id.mainFlashCardAnswerTextView)).setText(flashcard.getAnswer());
@@ -321,9 +298,11 @@ public class MainActivity extends AppCompatActivity {
                         flashCardQuestionTextView.startAnimation(centerToLeftAnim);
                     }
 
-                    answerChoiceOneTextView.startAnimation(centerToLeftAnim);
-                    answerChoiceTwoTextView.startAnimation(centerToLeftAnim);
-                    answerChoiceThreeTextView.startAnimation(centerToLeftAnim);
+                    if (answerChoiceOneTextView.getVisibility() == View.VISIBLE) {
+                        answerChoiceOneTextView.startAnimation(centerToLeftAnim);
+                        answerChoiceTwoTextView.startAnimation(centerToLeftAnim);
+                        answerChoiceThreeTextView.startAnimation(centerToLeftAnim);
+                    }
 
                     centerToLeftAnim.setAnimationListener(new Animation.AnimationListener() {
                         @Override
@@ -336,12 +315,19 @@ public class MainActivity extends AppCompatActivity {
                             flashCardAnswerTextView.setVisibility(View.INVISIBLE);
                             flashCardQuestionTextView.setVisibility(View.VISIBLE);
                             flashCardQuestionTextView.startAnimation(rightToCenterAnim);
-                            answerChoiceOneTextView.startAnimation(rightToCenterAnim);
-                            answerChoiceTwoTextView.startAnimation(rightToCenterAnim);
-                            answerChoiceThreeTextView.startAnimation(rightToCenterAnim);
+                            if (answerChoiceOneTextView.getVisibility() == View.VISIBLE) {
+                                answerChoiceOneTextView.startAnimation(rightToCenterAnim);
+                                answerChoiceTwoTextView.startAnimation(rightToCenterAnim);
+                                answerChoiceThreeTextView.startAnimation(rightToCenterAnim);
+                            }
                             flashcardDatabase.deleteCard(((TextView) findViewById(R.id.mainFlashCardQuestionTextView)).getText().toString());
                             allFlashcards = flashcardDatabase.getAllCards();
-                            Flashcard flashcard = allFlashcards.get(getRandomNumber(0, allFlashcards.size() - 1));
+                            Flashcard flashcard;
+                            if (allFlashcards.size() == 1){
+                                flashcard = allFlashcards.get(0);
+                            } else {
+                                flashcard = allFlashcards.get(getRandomNumber(0, allFlashcards.size() - 1));
+                            }
 
                             ((TextView) findViewById(R.id.mainFlashCardQuestionTextView)).setText(flashcard.getQuestion());
                             ((TextView) findViewById(R.id.mainFlashCardAnswerTextView)).setText(flashcard.getAnswer());
@@ -365,6 +351,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startTimer() {
+        countDownTimer = new CountDownTimer(16000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                ((TextView) findViewById(R.id.timerTextView)).setText("" + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+            }
+        };
         countDownTimer.start();
     }
 
@@ -472,8 +466,13 @@ public class MainActivity extends AppCompatActivity {
             }
             allFlashcards = flashcardDatabase.getAllCards();
             shuffleAnswers(newCorrectAnswerString, wrongAnswerOneString, wrongAnswerTwoString);
+            resetAnswerChoiceColors();
             Snackbar.make(findViewById(R.id.mainFlashCardQuestionTextView), "Updated...", Snackbar.LENGTH_SHORT).show();
-            startTimer();
+            if (countDownTimer == null) {
+                startTimer();
+            } else {
+                restartTimer();
+            }
             // TODO: 3/7/2021 Update the rest of the choices accordingly
         }
     }

@@ -40,6 +40,7 @@ public class AddCardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.left_to_center,R.anim.center_to_right);
             }
         });
         // TODO: 3/6/2021 Use the saving button to save the entered data and update the flash card with that data.
@@ -68,6 +69,7 @@ public class AddCardActivity extends AppCompatActivity {
                     data.putExtra("wrongAnswerTwoString", wrongAnswerTwoString);
                     setResult(RESULT_OK, data);
                     finish();
+                    overridePendingTransition(R.anim.left_to_center,R.anim.center_to_right);
                 }
             }
         });

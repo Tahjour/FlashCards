@@ -124,7 +124,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="--"
-        android:textColor="@color/black"
+        android:textColor="@color/grayishWhite"
         app:autoSizeMaxTextSize="100sp"
         app:autoSizeMinTextSize="12sp"
         app:autoSizeStepGranularity="2sp"
