@@ -1,8 +1,12 @@
 package com.example.flashcardapp;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,13 +54,27 @@ public class MainActivity extends AppCompatActivity {
             shuffleAnswers(allFlashcards.get(0).getAnswer(), allFlashcards.get(0).getWrongAnswer1(), allFlashcards.get(0).getWrongAnswer2());
         }
 
-// The Question and Answer flash cards Section
+        // The Question and Answer flash cards Section
         flashCardQuestionTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Set the question card to invisible and set the answer card to visible when clicked
+
+                // get the center for the clipping circle
+                int cx = flashCardAnswerTextView.getWidth() / 2;
+                int cy = flashCardAnswerTextView.getHeight() / 2;
+
+                // get the final radius for the clipping circle
+                float finalRadius = (float) Math.hypot(cx, cy);
+
+                // create the animator for this view (the start radius is zero)
+                Animator anim = ViewAnimationUtils.createCircularReveal(flashCardAnswerTextView, cx, cy, 0f, finalRadius);
+
+                // hide the question and show the answer to prepare for playing the animation!
                 flashCardQuestionTextView.setVisibility(View.INVISIBLE);
                 flashCardAnswerTextView.setVisibility(View.VISIBLE);
+                anim.setDuration(500);
+                anim.start();
             }
         });
 
@@ -146,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
                 // Creates a new intent and starts an activity with the expectation of a result being returned from the started activity.
                 Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
                 MainActivity.this.startActivityForResult(intent, 100);
+                MainActivity.this.overridePendingTransition(R.anim.right_to_center, R.anim.center_to_left);
             }
         });
 
@@ -161,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 String currentQuestionString = flashCardQuestionTextView.getText().toString();
                 String currentCorrectAnswerString = flashCardAnswerTextView.getText().toString();
-                if (currentQuestionString.equals("--")||currentCorrectAnswerString.equals("--")) {
+                if (currentQuestionString.equals("--") || currentCorrectAnswerString.equals("--")) {
                     return;
                 }
                 Answers updatedAnswers = getCorrectAndWrongAnswers(currentCorrectAnswerString, answerChoiceOneTextView, answerChoiceTwoTextView, answerChoiceThreeTextView);
@@ -180,18 +199,39 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.nextFlashCardIcon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                flashCardAnswerTextView.setVisibility(View.INVISIBLE);
+                flashCardQuestionTextView.setVisibility(View.VISIBLE);
                 if (allFlashcards.size() > 0) {
                     // make sure we don't get an IndexOutOfBoundsError if we are viewing the last indexed card in our list
                     // set the question and answer TextViews with data from the database
                     allFlashcards = flashcardDatabase.getAllCards();
                     if (allFlashcards.size() > 0) {
-                        Flashcard flashcard = allFlashcards.get(getRandomNumber(0, allFlashcards.size() - 1));
-                        ((TextView) findViewById(R.id.mainFlashCardQuestionTextView)).setText(flashcard.getQuestion());
-                        ((TextView) findViewById(R.id.mainFlashCardAnswerTextView)).setText(flashcard.getAnswer());
-                        shuffleAnswers(flashcard.getAnswer(), flashcard.getWrongAnswer1(), flashcard.getWrongAnswer2());
-                        answerChoiceTwoTextView.setBackgroundColor(getResources().getColor(R.color.wisteriaPurple, null));
-                        answerChoiceOneTextView.setBackgroundColor(getResources().getColor(R.color.wisteriaPurple, null));
-                        answerChoiceThreeTextView.setBackgroundColor(getResources().getColor(R.color.wisteriaPurple, null));
+                        final Animation centerToLeftAnim = AnimationUtils.loadAnimation(v.getContext(), R.anim.center_to_left);
+                        final Animation rightToCenterAnim = AnimationUtils.loadAnimation(v.getContext(), R.anim.right_to_center);
+
+                        flashCardQuestionTextView.startAnimation(centerToLeftAnim);
+                        centerToLeftAnim.setAnimationListener(new Animation.AnimationListener() {
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                Flashcard flashcard = allFlashcards.get(getRandomNumber(0, allFlashcards.size() - 1));
+                                ((TextView) findViewById(R.id.mainFlashCardQuestionTextView)).setText(flashcard.getQuestion());
+                                ((TextView) findViewById(R.id.mainFlashCardAnswerTextView)).setText(flashcard.getAnswer());
+                                shuffleAnswers(flashcard.getAnswer(), flashcard.getWrongAnswer1(), flashcard.getWrongAnswer2());
+                                answerChoiceTwoTextView.setBackgroundColor(getResources().getColor(R.color.wisteriaPurple, null));
+                                answerChoiceOneTextView.setBackgroundColor(getResources().getColor(R.color.wisteriaPurple, null));
+                                answerChoiceThreeTextView.setBackgroundColor(getResources().getColor(R.color.wisteriaPurple, null));
+
+                                flashCardQuestionTextView.startAnimation(rightToCenterAnim);
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+                            }
+                        });
                     }
                 }
             }
