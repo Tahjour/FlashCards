@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddCardActivity"
+    android:background="@color/cloudBlack"
     android:padding="30dp">
 
     <ImageView
@@ -30,6 +31,8 @@
         android:layout_width="500dp"
         android:layout_height="100dp"
         android:hint="Enter a new question...."
+        android:textColor="@color/grayishWhite"
+        android:textColorHint="@color/grayishWhite"
         android:layout_centerHorizontal="true"
         android:padding="20dp"
         android:layout_marginBottom="10dp"
@@ -42,6 +45,8 @@
         android:layout_width="500dp"
         android:layout_height="100dp"
         android:hint="Enter the correct answer...."
+        android:textColor="@color/grayishWhite"
+        android:textColorHint="@color/grayishWhite"
         android:layout_centerHorizontal="true"
         android:padding="20dp"
         android:layout_below="@+id/newQuestionEditText"
@@ -54,6 +59,8 @@
         android:layout_width="500dp"
         android:layout_height="100dp"
         android:hint="Enter a wrong answer...."
+        android:textColor="@color/grayishWhite"
+        android:textColorHint="@color/grayishWhite"
         android:layout_centerHorizontal="true"
         android:padding="20dp"
         android:layout_below="@+id/newCorrectAnswerEditText"
@@ -66,6 +73,8 @@
         android:layout_width="500dp"
         android:layout_height="100dp"
         android:hint="Enter a wrong answer...."
+        android:textColor="@color/grayishWhite"
+        android:textColorHint="@color/grayishWhite"
         android:layout_centerHorizontal="true"
         android:padding="20dp"
         android:layout_below="@+id/newWrongAnswerChoiceOneEditText"
